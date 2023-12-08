@@ -1,5 +1,5 @@
 package edu.ics4u.nicolas.cars;
 
-public class SnowCar {
+public class SnowCar {//🚙
     
 }
