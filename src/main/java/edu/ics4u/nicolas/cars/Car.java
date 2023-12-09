@@ -11,5 +11,7 @@ public interface Car {
     void endBrake();
 
     boolean isDrifting();
-    int getMaxSpeed();
+    boolean isBreaking();
+    double getMaxSpeed();
+    double getSpeed();
 }

@@ -1,57 +1,74 @@
 package edu.ics4u.nicolas.cars;
 
 public class StadiumCar implements Car {
-    private final int maxSpeed = 999; // unités par seconde
-    private final int acceleration = 1; // unités par seconde par seconde
+    private final double maxSpeed = 999; // unités par seconde
+    private final double acceleration = 2; // unités par seconde par seconde
+    private final double driftSpeed = 100; // minumum de vitesse (u/s) où la voiture peut dériver
 
-    private int speed = 0;
+    private double speed = 0;
     private boolean isAccelerating = false;
     private boolean isBreaking = false;
 
+    @Override
     public String render() {
         return "🏎️" + (isDrifting() ? "💭" : "") + (isAccelerating ? "≡" : "");
     }
 
+    @Override
     public void step(int fps) {
         if (isAccelerating) {
             speed += acceleration / fps;
         }
 
-        if (isDrifting()) {
-            speed -= acceleration / 2 / fps;
-        } else if (isBreaking) {
-            speed -= 2 * acceleration / fps;
+        if (isBreaking) {
+            speed -= (isDrifting() ? 0.5 : 2) * acceleration / fps;
         }
 
     }
 
 
 
+    @Override
     public void accelerate() {
         isAccelerating = true;
     }
 
+    @Override
     public void decelerate() {
         isAccelerating = false;
     }
 
 
+    @Override
     public void initiateBrake() {
         isBreaking = true;
     }
 
+    @Override
     public void endBrake() {
         isBreaking = false;
     }
 
 
 
+    @Override
     public boolean isDrifting() {
-        return isBreaking && speed > 100;
+        return isBreaking && speed >= driftSpeed;
+    }
+
+    @Override
+    public boolean isBreaking() {
+        return isBreaking;
     }
 
 
-    public int getMaxSpeed() {
+    @Override
+    public double getMaxSpeed() {
         return maxSpeed;
+    }
+
+    @Override
+    public double getSpeed() {
+        return speed;
     }
 }
