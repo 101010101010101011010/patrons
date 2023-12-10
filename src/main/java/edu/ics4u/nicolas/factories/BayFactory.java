@@ -1,5 +1,20 @@
 package edu.ics4u.nicolas.factories;
 
-public class BayFactory {
+import edu.ics4u.nicolas.cars.BayCar;
+import edu.ics4u.nicolas.cars.Car;
+import edu.ics4u.nicolas.sceneries.BayScenery;
+import edu.ics4u.nicolas.sceneries.Scenery;
+
+public class BayFactory implements TrackmaniaFactory {
+
+  @Override
+  public Car createCar() {
+    return new BayCar();
+  }
+
+  @Override
+  public Scenery creatScenery() {
+    return new BayScenery();
+  }
     
 }

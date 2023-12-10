@@ -2,7 +2,7 @@ package edu.ics4u.nicolas.cars;
 
 public interface Car {
     String render();
-    void step(int fps);
+    void step(double fps);
 
     void accelerate();
     void decelerate();

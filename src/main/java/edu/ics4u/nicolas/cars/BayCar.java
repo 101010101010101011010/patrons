@@ -1,9 +1,9 @@
 package edu.ics4u.nicolas.cars;
 
 public class BayCar implements Car {
-  private final double maxSpeed = 999; // unités par seconde
-  private final double acceleration = 2; // unités par seconde par seconde
-  private final double driftSpeed = 150; // minumum de vitesse (u/s) où la voiture peut dériver
+  private final double maxSpeed = 20; // unités par seconde
+  private final double acceleration = 0.06; // unités par seconde par seconde
+  private final double driftSpeed = 5; // minumum de vitesse (u/s) où la voiture peut dériver
 
   private double speed = 0;
   private boolean isAccelerating = false;
@@ -11,11 +11,11 @@ public class BayCar implements Car {
 
   @Override
   public String render() {
-      return "🚐" + (isDrifting() ? "💭" : "") + (isAccelerating ? "≡" : "");
+      return "🚐" + (isDrifting() ? "💭" : "") + (isAccelerating && !isDrifting() ? "≡" : "");
   }
 
   @Override
-  public void step(int fps) {
+  public void step(double fps) {
       if (isAccelerating) {
           speed += acceleration / fps;
       }

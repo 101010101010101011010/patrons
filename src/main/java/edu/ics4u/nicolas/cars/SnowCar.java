@@ -1,10 +1,10 @@
 package edu.ics4u.nicolas.cars;
 
 public class SnowCar implements Car {
-  private final double maxSpeed = 99; // unités par seconde
-  private final double acceleration = 1; // unités par seconde par seconde
+  private final double maxSpeed = 10; // unités par seconde
+  private final double acceleration = 0.03; // unités par seconde par seconde
 
-  private double speed = 0.4;
+  private double speed = 0;
   private boolean isAccelerating = false;
   private boolean isBreaking = false;
 
@@ -14,7 +14,7 @@ public class SnowCar implements Car {
   }
 
   @Override
-  public void step(int fps) {
+  public void step(double fps) {
       if (isAccelerating) {
           speed += acceleration / fps;
       }
