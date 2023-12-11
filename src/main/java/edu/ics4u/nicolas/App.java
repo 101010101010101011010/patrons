@@ -19,6 +19,7 @@ public class App
     int fps = 24;
 
     Game game;
+    boolean alternateWeights = false;
 
     System.out.println("\u001B[?25h");
     Scanner scanner = new Scanner(System.in);
@@ -36,6 +37,7 @@ public class App
       String answer = scanner.next();
       if (answer.charAt(0) == '1') {
         game = new Game(new StadiumFactory());
+        alternateWeights = true;
         break;
       } else if (answer.charAt(0) == '2') {
         game = new Game(new BayFactory());
@@ -45,6 +47,7 @@ public class App
         break;
       }
     }
+    scanner.close();
 
     game.performAction(Actions.accelerate);
 
@@ -55,11 +58,11 @@ public class App
 
       if (Math.random() > 1-0.5/fps) {
         double random1 = Math.random();
-        if (random1 > 0.70) {
+        if (random1 > (alternateWeights ? 0.75 : 0.70)) {
           game.performAction(Actions.accelerate);
         } else if (random1 > 0.50) {
           game.performAction(Actions.decelerate);
-        } else if (random1 > 0.30) {
+        } else if (random1 > (alternateWeights ? 0.25 : 0.30)) {
           game.performAction(Actions.initiateBrake);
         } else {
           game.performAction(Actions.endBrake);

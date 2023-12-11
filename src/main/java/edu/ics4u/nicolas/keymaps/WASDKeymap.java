@@ -1,7 +1,6 @@
 package edu.ics4u.nicolas.keymaps;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class WASDKeymap implements Keymap {
   @Override
