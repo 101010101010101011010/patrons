@@ -1,0 +1,21 @@
+@startuml Trackmania
+!theme amiga
+
+interface Car {
+    render() : String
+    step(double fps)
+
+    accelerate()
+    decelerate()
+
+    initiateBrake()
+    endBrake()
+
+    isDrifting() : boolean
+    isBreaking() : boolean
+    isAccelerating() : boolean
+    getMaxSpeed() : double
+    getSpeed() : doulbe
+}
+
+@enduml
