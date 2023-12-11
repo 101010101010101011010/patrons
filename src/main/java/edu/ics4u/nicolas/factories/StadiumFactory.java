@@ -4,6 +4,8 @@ import edu.ics4u.nicolas.cars.Car;
 import edu.ics4u.nicolas.cars.StadiumCar;
 import edu.ics4u.nicolas.displays.Display;
 import edu.ics4u.nicolas.displays.StadiumDisplay;
+import edu.ics4u.nicolas.keymaps.Keymap;
+import edu.ics4u.nicolas.keymaps.WASDKeymap;
 import edu.ics4u.nicolas.sceneries.Scenery;
 import edu.ics4u.nicolas.sceneries.StadiumScenery;
 
@@ -23,5 +25,10 @@ public class StadiumFactory implements TrackmaniaFactory {
   public Display createDisplay() {
     return new StadiumDisplay();
   }
-    
+
+  @Override
+  public Keymap createwKeymap() {
+    return new WASDKeymap();
+  }
+  
 }

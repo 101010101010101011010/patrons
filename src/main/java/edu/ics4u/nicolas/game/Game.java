@@ -4,17 +4,20 @@ import edu.ics4u.nicolas.cars.Car;
 import edu.ics4u.nicolas.displays.Display;
 import edu.ics4u.nicolas.factories.TrackmaniaFactory;
 import edu.ics4u.nicolas.keymaps.Actions;
+import edu.ics4u.nicolas.keymaps.Keymap;
 import edu.ics4u.nicolas.sceneries.Scenery;
 
 public class Game {
     private Car car;
     private Scenery scenery;
     private Display display;
+    private Keymap keymap;
 
     public Game(TrackmaniaFactory factory) {
       this.car = factory.createCar();
       this.scenery = factory.creatScenery();
       this.display = factory.createDisplay();
+      this.keymap = factory.createwKeymap();
     }
 
     public Car getCar() {
@@ -23,6 +26,10 @@ public class Game {
 
     public Scenery getScenery() {
       return scenery;
+    }
+
+    public Keymap getKeymap() {
+      return keymap;
     }
 
     public void step(double fps) {

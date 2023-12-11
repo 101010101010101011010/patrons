@@ -4,6 +4,8 @@ import edu.ics4u.nicolas.cars.Car;
 import edu.ics4u.nicolas.cars.SnowCar;
 import edu.ics4u.nicolas.displays.Display;
 import edu.ics4u.nicolas.displays.SnowDisplay;
+import edu.ics4u.nicolas.keymaps.IJKLKeymap;
+import edu.ics4u.nicolas.keymaps.Keymap;
 import edu.ics4u.nicolas.sceneries.Scenery;
 import edu.ics4u.nicolas.sceneries.SnowScenery;
 
@@ -22,6 +24,11 @@ public class SnowFactory implements TrackmaniaFactory {
   @Override
   public Display createDisplay() {
     return new SnowDisplay();
+  }
+
+  @Override
+  public Keymap createwKeymap() {
+    return new IJKLKeymap();
   }
     
 }

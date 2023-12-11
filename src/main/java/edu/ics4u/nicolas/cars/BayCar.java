@@ -21,7 +21,7 @@ public class BayCar implements Car {
         }
 
         if (isBreaking) {
-            speed -= (isDrifting() ? 0.95 : 3) * acceleration / fps;
+            speed -= (isDrifting() ? 1.5 : 3) * acceleration / fps;
             if (speed < 0) { speed = 0; }
         }
 

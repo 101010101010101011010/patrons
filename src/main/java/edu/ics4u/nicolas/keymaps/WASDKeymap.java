@@ -2,15 +2,19 @@ package edu.ics4u.nicolas.keymaps;
 
 import java.util.ArrayList;
 
+import edu.ics4u.nicolas.cars.Car;
+
 public class WASDKeymap implements Keymap {
+
   @Override
   public Actions[] keysToActions(String keys) {
     ArrayList<Actions> actions = new ArrayList<>();
+    String lowerKeys = keys.toLowerCase();
     
-    if (keys.contains("w")) { actions.add(Actions.accelerate); }
+    if (lowerKeys.contains("w")) { actions.add(Actions.accelerate); }
     else { actions.add(Actions.decelerate); }
 
-    if (keys.contains("s")) { actions.add(Actions.initiateBrake); }
+    if (lowerKeys.contains("s")) { actions.add(Actions.initiateBrake); }
     else { actions.add(Actions.endBrake); }
 
     return (Actions[])actions.toArray();
@@ -24,6 +28,16 @@ public class WASDKeymap implements Keymap {
       if (action == Actions.accelerate) { keys += "W"; }
       else if (action == Actions.initiateBrake) { keys += "S"; }
     }
+
+    return keys;
+  }
+
+  @Override
+  public String carToKeys(Car car) {
+    String keys = "";
+
+    if (car.isAccelerating()) { keys += "W"; }
+    if (car.isBreaking()) { keys += "S"; }
 
     return keys;
   }
