@@ -12,6 +12,7 @@ public interface Car {
 
     boolean isDrifting();
     boolean isBreaking();
+    boolean isAccelerating();
     double getMaxSpeed();
     double getSpeed();
 }

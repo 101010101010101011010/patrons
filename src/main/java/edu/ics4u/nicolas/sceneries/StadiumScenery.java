@@ -1,6 +1,5 @@
 package edu.ics4u.nicolas.sceneries;
 
-import edu.ics4u.nicolas.AssortedMethods;
 import edu.ics4u.nicolas.cars.Car;
 
 public class StadiumScenery implements Scenery {
@@ -10,13 +9,13 @@ public class StadiumScenery implements Scenery {
 
   @Override
   public String render() {
-    String str = AssortedMethods.multiCodePointSubstring(scene, (int)offset, scene.length());
+    String str = scene.substring((int)offset, scene.length());
     
     while (str.length() < printWidth) {
       str += scene;
     }
 
-    return AssortedMethods.multiCodePointSubstring(str, 0, printWidth);
+    return str.substring(0, printWidth);
   }
 
   @Override

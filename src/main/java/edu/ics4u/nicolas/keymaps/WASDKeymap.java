@@ -1,6 +1,7 @@
 package edu.ics4u.nicolas.keymaps;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class WASDKeymap implements Keymap {
   @Override
@@ -17,9 +18,15 @@ public class WASDKeymap implements Keymap {
   }
 
   @Override
-  public String actionToKey(Actions[] actions) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'actionToKey'");
+  public String actionsToKeys(Actions[] actions) {
+    String keys = "";
+
+    for (Actions action : actions) {
+      if (action == Actions.accelerate) { keys += "W"; }
+      else if (action == Actions.initiateBrake) { keys += "S"; }
+    }
+
+    return keys;
   }
   
 }

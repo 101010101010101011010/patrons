@@ -1,6 +1,5 @@
 package edu.ics4u.nicolas.sceneries;
 
-import edu.ics4u.nicolas.AssortedMethods;
 import edu.ics4u.nicolas.cars.Car;
 
 public class SnowScenery implements Scenery {
