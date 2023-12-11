@@ -7,13 +7,13 @@ Patrons de création
 TODO
 
 ## Concepts POO
-## Utilisation d'héritage
+#### Utilisation d'héritage
 TODO
-## Utilisation d'interfaces
+#### Utilisation d'interfaces
 TODO
-## Utilisation du polymorphisme
+#### Utilisation du polymorphisme
 TODO
-## Utilisation de composition
+#### Utilisation de composition
 TODO
 
 ## Sources
