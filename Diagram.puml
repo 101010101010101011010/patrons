@@ -1,21 +1,299 @@
 @startuml Trackmania
 !theme amiga
 
+
+package edu.ics4u.nicolas.cars <<Folder>> {
+
 interface Car {
-    render() : String
-    step(double fps)
+    + render() : String
+    + step(double fps)
 
-    accelerate()
-    decelerate()
+    + accelerate()
+    + decelerate()
 
-    initiateBrake()
-    endBrake()
+    + initiateBrake()
+    + endBrake()
 
-    isDrifting() : boolean
-    isBreaking() : boolean
-    isAccelerating() : boolean
-    getMaxSpeed() : double
-    getSpeed() : doulbe
+    + isDrifting() : boolean
+    + isBreaking() : boolean
+    + isAccelerating() : boolean
+    + + getMaxSpeed() : double
+    + getSpeed() : doulbe
 }
+
+class BayCar implements Car {
+    + render() : String
+    + step(double fps)
+
+    + accelerate()
+    + decelerate()
+
+    + initiateBrake()
+    + endBrake()
+
+    + isDrifting() : boolean
+    + isBreaking() : boolean
+    + isAccelerating() : boolean
+    + getMaxSpeed() : double
+    + getSpeed() : doulbe
+}
+
+class SnowCar implements Car {
+    + render() : String
+    + step(double fps)
+
+    + accelerate()
+    + decelerate()
+
+    + initiateBrake()
+    + endBrake()
+
+    + isDrifting() : boolean
+    + isBreaking() : boolean
+    + isAccelerating() : boolean
+    + getMaxSpeed() : double
+    + getSpeed() : doulbe
+}
+
+class StadiumCar implements Car {
+    + render() : String
+    + step(double fps)
+
+    + accelerate()
+    + decelerate()
+
+    + initiateBrake()
+    + endBrake()
+
+    + isDrifting() : boolean
+    + isBreaking() : boolean
+    + isAccelerating() : boolean
+    + getMaxSpeed() : double
+    + getSpeed() : doulbe
+}
+
+}
+
+
+
+package edu.ics4u.nicolas.displays <<Folder>> {
+
+interface Display {
+  + renderTop(Game game) : String
+  + renderBottom(Game game) : String
+}
+
+Display ..> edu.ics4u.nicolas.game.Game
+
+class BayDisplay implements Display {
+  + renderTop(Game game) : String
+  + renderBottom(Game game) : String
+}
+
+BayDisplay ..> edu.ics4u.nicolas.cars.Car
+BayDisplay ..> edu.ics4u.nicolas.game.Game
+BayDisplay ..> edu.ics4u.nicolas.keymaps.Keymap
+
+class SnowDisplay implements Display {
+  + renderTop(Game game) : String
+  + renderBottom(Game game) : String
+}
+
+SnowDisplay ..> edu.ics4u.nicolas.cars.Car
+SnowDisplay ..> edu.ics4u.nicolas.game.Game
+
+class StadiumDisplay implements Display {
+  + renderTop(Game game) : String
+  + renderBottom(Game game) : String
+}
+
+StadiumDisplay ..> edu.ics4u.nicolas.cars.Car
+StadiumDisplay ..> edu.ics4u.nicolas.game.Game
+StadiumDisplay ..> edu.ics4u.nicolas.keymaps.Keymap
+
+}
+
+
+
+package edu.ics4u.nicolas.factories <<Folder>> {
+
+interface TrackmaniaFactory {
+    + createCar() : Car
+    + creatScenery() : Scenery
+    + createDisplay() : Display
+    + createwKeymap() : Keymap
+}
+
+TrackmaniaFactory ..> edu.ics4u.nicolas.cars.Car
+TrackmaniaFactory ..> edu.ics4u.nicolas.displays.Display
+TrackmaniaFactory ..> edu.ics4u.nicolas.keymaps.Keymap
+TrackmaniaFactory ..> edu.ics4u.nicolas.sceneries.Scenery
+
+class BayFactory implements TrackmaniaFactory {
+    + createCar() : Car
+    + creatScenery() : Scenery
+    + createDisplay() : Display
+    + createwKeymap() : Keymap
+}
+
+BayFactory ..> edu.ics4u.nicolas.cars.Car
+BayFactory ..> edu.ics4u.nicolas.cars.BayCar
+BayFactory ..> edu.ics4u.nicolas.displays.Display
+BayFactory ..> edu.ics4u.nicolas.displays.BayDisplay
+BayFactory ..> edu.ics4u.nicolas.keymaps.Keymap
+BayFactory ..> edu.ics4u.nicolas.keymaps.IJKLKeymap
+BayFactory ..> edu.ics4u.nicolas.sceneries.Scenery
+BayFactory ..> edu.ics4u.nicolas.sceneries.BayScenery
+
+class SnowFactory implements TrackmaniaFactory {
+    + createCar() : Car
+    + creatScenery() : Scenery
+    + createDisplay() : Display
+    + createwKeymap() : Keymap
+}
+
+SnowFactory ..> edu.ics4u.nicolas.cars.Car
+SnowFactory ..> edu.ics4u.nicolas.cars.SnowCar
+SnowFactory ..> edu.ics4u.nicolas.displays.Display
+SnowFactory ..> edu.ics4u.nicolas.displays.SnowDisplay
+SnowFactory ..> edu.ics4u.nicolas.keymaps.Keymap
+SnowFactory ..> edu.ics4u.nicolas.keymaps.IJKLKeymap
+SnowFactory ..> edu.ics4u.nicolas.sceneries.Scenery
+SnowFactory ..> edu.ics4u.nicolas.sceneries.SnowScenery
+
+class StadiumFactory implements TrackmaniaFactory {
+    + createCar() : Car
+    + creatScenery() : Scenery
+    + createDisplay() : Display
+    + createwKeymap() : Keymap
+}
+
+StadiumFactory ..> edu.ics4u.nicolas.cars.Car
+StadiumFactory ..> edu.ics4u.nicolas.cars.StadiumCar
+StadiumFactory ..> edu.ics4u.nicolas.displays.Display
+StadiumFactory ..> edu.ics4u.nicolas.displays.StadiumDisplay
+StadiumFactory ..> edu.ics4u.nicolas.keymaps.Keymap
+StadiumFactory ..> edu.ics4u.nicolas.keymaps.WASDKeymap
+StadiumFactory ..> edu.ics4u.nicolas.sceneries.Scenery
+StadiumFactory ..> edu.ics4u.nicolas.sceneries.StadiumScenery
+
+}
+
+
+
+package edu.ics4u.nicolas.game <<Folder>> {
+
+class Game {
+    + Game(TrackmaniaFactory factory) : Game
+    + getCar() : Car
+    + getScenery() : Scenery
+    + getKeymap() : Keymap
+    + step(double fps)
+    + render()
+    + performActions(Actions[] actions)
+    + performAction(Actions action)
+}
+
+Game ..> edu.ics4u.nicolas.cars.Car
+Game ..> edu.ics4u.nicolas.displays.Display
+Game ..> edu.ics4u.nicolas.factories.TrackmaniaFactory
+Game ..> edu.ics4u.nicolas.keymaps.Actions
+Game ..> edu.ics4u.nicolas.keymaps.Keymap
+Game ..> edu.ics4u.nicolas.sceneries.Scenery
+
+}
+
+
+
+package edu.ics4u.nicolas.keymaps <<Folder>> {
+
+enum Actions {
+  accelerate
+  decelerate
+  initiateBrake
+  endBrake
+}
+
+interface Keymap {
+  + keysToActions(String keys) : Actions[]
+  + actionsToKeys(Actions[] actions) : String
+  + carToKeys(Car car) : String
+}
+
+Keymap ..> edu.ics4u.nicolas.cars.Car
+
+class WASDKeymap implements Keymap {
+  + keysToActions(String keys) : Actions[]
+  + actionsToKeys(Actions[] actions) : String
+  + carToKeys(Car car) : String
+}
+
+WASDKeymap ..> java.util.ArrayList
+WASDKeymap ..> edu.ics4u.nicolas.cars.Car
+
+class IJKLKeymap implements Keymap {
+  + keysToActions(String keys) : Actions[]
+  + actionsToKeys(Actions[] actions) : String
+  + carToKeys(Car car) : String
+}
+
+IJKLKeymap ..> java.util.ArrayList
+IJKLKeymap ..> edu.ics4u.nicolas.cars.Car
+
+}
+
+
+
+package edu.ics4u.nicolas.sceneries <<Folder>> {
+
+interface Scenery {
+  + render() : String
+  + step(Car car, double fps);
+}
+
+Scenery ..> edu.ics4u.nicolas.cars.Car
+
+class BayScenery implements Scenery {
+  + render() : String
+  + step(Car car, double fps);
+}
+
+BayScenery ..> edu.ics4u.nicolas.cars.Car
+
+class SnowScenery implements Scenery {
+  + render() : String
+  + step(Car car, double fps);
+}
+
+SnowScenery ..> edu.ics4u.nicolas.cars.Car
+
+class StadiumScenery implements Scenery {
+  + render() : String
+  + step(Car car, double fps);
+}
+
+StadiumScenery ..> edu.ics4u.nicolas.cars.Car
+
+}
+
+
+
+package edu.ics4u.nicolas <<Folder>> {
+
+class App 
+{
+  + {static} main(String[] args)
+}
+
+App ..> edu.ics4u.nicolas.cars.Car
+App ..> edu.ics4u.nicolas.displays.Display
+App ..> edu.ics4u.nicolas.factories.TrackmaniaFactory
+App ..> edu.ics4u.nicolas.keymaps.Actions
+App ..> edu.ics4u.nicolas.keymaps.Keymap
+App ..> edu.ics4u.nicolas.sceneries.Scenery
+
+}
+
+
 
 @enduml
