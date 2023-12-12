@@ -1,5 +1,7 @@
 patrons / Nicolas / 13 Décembre
 
+![SVG du PUML du projet](https://github.com/101010101010101011010/patrons/blob/master/PatronsPUML.svg)
+
 ## Fabrique abstraite
 #### Catégorie
 Patrons de création
