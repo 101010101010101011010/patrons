@@ -2,6 +2,14 @@
 !theme amiga
 
 
+package java.util <<Folder>> {
+
+class ArrayList {}
+
+}
+
+
+
 package edu.ics4u.nicolas.cars <<Folder>> {
 
 interface Car {
