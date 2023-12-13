@@ -2,7 +2,7 @@ Patrons / Nicolas / 13 Décembre
 
 ![SVG du PUML du projet](/PatronsPUML.svg)
 
-Pour rouler le jeu, écris `.\run.ps1` dans le terminale. Ce script applique l'espace de code 65001 (UTF-8) afin que les emoji soit bien présentés puis roule ensuite le program.
+> **_Note:_** Pour rouler le jeu, écris `.\run.ps1` dans le terminale. Ce script applique l'espace de code 65001 (UTF-8) afin que les emoji soit bien présentés puis il roule ensuite le program.
 
 ## Fabrique abstraite
 #### Catégorie
