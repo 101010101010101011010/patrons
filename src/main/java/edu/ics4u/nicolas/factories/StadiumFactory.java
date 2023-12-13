@@ -27,7 +27,7 @@ public class StadiumFactory implements TrackmaniaFactory {
   }
 
   @Override
-  public Keymap createwKeymap() {
+  public Keymap createKeymap() {
     return new WASDKeymap();
   }
   

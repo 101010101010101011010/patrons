@@ -17,26 +17,49 @@ public class Game {
       this.car = factory.createCar();
       this.scenery = factory.creatScenery();
       this.display = factory.createDisplay();
-      this.keymap = factory.createwKeymap();
+      this.keymap = factory.createKeymap();
     }
 
+    /**
+     * Un getter de la voiture.
+     * 
+     * @return la voiture
+     */
     public Car getCar() {
       return car;
     }
 
+    /**
+     * Un getter de l'affiche.
+     * 
+     * @return l'affiche
+     */
     public Scenery getScenery() {
       return scenery;
     }
 
+    /**
+     * Un getter de la configuration de clées.
+     * 
+     * @return la configuration de clées
+     */
     public Keymap getKeymap() {
       return keymap;
     }
 
+    /**
+     * Applique les physiques sur tous les composants du jeu selon le nombre d'images par seconde.
+     * 
+     * @param fps le nombre d'images par seconde
+     */
     public void step(double fps) {
       car.step(fps);
       scenery.step(car, fps);
     }
 
+    /**
+     * Dessine tous les visuels des composants du jeu à la terminale.
+     */
     public void render() {
       String background = scenery.render();
       String midground = car.render();
@@ -56,12 +79,22 @@ public class Game {
       System.out.println(lowerDisplay);
     }
 
+    /**
+     * Applique tous les actions voulus.
+     * 
+     * @param actions les actions à appliquer
+     */
     public void performActions(Actions[] actions) {
       for (Actions action : actions) {
         performAction(action);
       }
     }
 
+    /**
+     * Applique l'action voulu.
+     * 
+     * @param action l'action à appliquer
+     */
     public void performAction(Actions action) {
       switch (action) {
         case accelerate:

@@ -27,7 +27,7 @@ public class BayFactory implements TrackmaniaFactory {
   }
 
   @Override
-  public Keymap createwKeymap() {
+  public Keymap createKeymap() {
     return new IJKLKeymap();
   }
     
