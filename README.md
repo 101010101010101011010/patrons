@@ -152,7 +152,51 @@ Les interfaces sont le point centrale de la `fabrique abstraite`. Elles sont uti
 Les interfaces sont aussi largement utilisées dans ce patron de conception afin de façiliter le sélectionnement d'items (exemples: `BayCar`, `StadiumDisplay`, etcetera) suivant un critère spécifique, comme un environnement. On peut donc appliquer le polymorphisme afin d'appeler une fonction de l'interface sur un objet qui l'implémente. Ceci est couvert en plus de détail dans la section [Utilisation du polymorphisme](#utilisation-du-polymorphisme).
 
 #### Utilisation du polymorphisme
-TODO
+Le polymorphisme est la solution au problème de devoir savoir chaque nom d'objet spécifique voulu. En passant le type de l'usine en créant l'usine abstraite, nous n'avons que besoin d'appeler les méthodes de l'interface sur l'implémenteur. Par exemple,
+```
+Car car = new BayCar();
+car.accelerate();
+```
+La table suivante (de plus tôt dans le README) démontre comment le type d'item spécifique est simplement assigné au type d'item abstrait.
+
+<table>
+  <tr>
+    <td colspan="2" class="hide"></td>
+    <th colspan="4">Critères</th>
+  </tr>
+  <tr>
+    <td colspan="2" class="hide"></td>
+    <th>Anchré</th>
+    <th class="table2angle">Anglé</th>
+    <th>De verre</th>
+    <th>À l'envers</th>
+  </tr>
+  <tr>
+    <th rowspan="6" class="nohover">Items</th>
+    <tr class="table2cabinet">
+      <th>Cabinet</th>
+      <td></td>
+      <td class="table2angle table2anglehighlight">Cabinet anglé</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tr>
+  <tr class="table2cabinet">
+    <th>Aimant</th>
+    <td></td>
+    <td class="table2angle table2anglehighlight">Aimant anglé</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="table2cabinet">
+    <th>Tapis à souris</th>
+    <td></td>
+    <td class="table2angle table2anglehighlight">Tapis à souris anglé</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
 #### Utilisation de composition
 TODO
 
