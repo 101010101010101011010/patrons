@@ -150,9 +150,9 @@ Nous pouvons ainsi simplement appeler la méthode `ouvre()` de l'interface `Cabi
 Ce projet n'utilise pas d'héritage puisqu'il n'y a aucune classe parente (signifiée par `extends`).
 
 #### Utilisation d'interfaces
-Les interfaces sont le point centrale de la `fabrique abstraite`. Elles sont utilisés afin d'assurer qu'un objet quelquonque contient les méthodes voulues. Par exemple, l'interface `Display` est utilisé afin d'assurer que les objets `BayDisplay`, `SnowDisplay` et `StadiumDisplay` contiennent les méthodes `renderTop(Game game)` et `renderBottom(Game game)`. 
+Les interfaces sont le point centrale de la `fabrique abstraite`. Elles sont utilisés afin d'assurer qu'un objet quelquonque contienne les méthodes voulues. Par exemple, l'interface `Display` est utilisé afin d'assurer que les objets `BayDisplay`, `SnowDisplay` et `StadiumDisplay` contiennent les méthodes `renderTop(Game game)` et `renderBottom(Game game)`. 
 
-Les interfaces sont aussi largement utilisées dans ce patron de conception afin de façiliter le sélectionnement d'items (exemples: `BayCar`, `StadiumDisplay`, etcetera) suivant un critère spécifique, comme un environnement. On peut donc appliquer le polymorphisme afin d'appeler une fonction de l'interface sur un objet qui l'implémente. Ceci est couvert en plus de détail dans la section [Utilisation du polymorphisme](#utilisation-du-polymorphisme).
+Les interfaces sont aussi largement utilisées dans ce patron de conception afin de façiliter le sélectionnement d'items (exemples: `BayCar`, `StadiumDisplay`, etcetera) suivant un critère spécifique, comme un environnement. On peut donc appliquer le polymorphisme afin d'appeler une méthode de l'interface sur un objet qui l'implémente. Ceci est couvert en plus de détail dans la section [Utilisation du polymorphisme](#utilisation-du-polymorphisme).
 
 #### Utilisation du polymorphisme
 Le polymorphisme est la solution au problème de devoir savoir chaque nom d'objet spécifique voulu. En passant le type de l'usine en créant l'usine abstraite, nous n'avons que besoin d'appeler les méthodes de l'interface sur l'implémenteur. Par exemple,
