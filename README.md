@@ -240,13 +240,13 @@ Ici-haut, les objets `teenThatWalks` et `babyThatWalks` sont du type canWalk. No
 ```
 class App {
   main(...) {
-    canWalk **_unknownThatWalks_** = <b>unknown</b>;
+    canWalk unknownThatWalks = unknown;
 
     unknownThatWalks.walk();
   }
 }
 ```
-Nous ne savons rien au sujet de `unknown` à part qu'il peut marcher. Ainsi, nous pouvons déleguer la création de l'objet dpécifique à des usines, puis simplement prendre le point en commun.
+Nous ne savons rien au sujet de `unknown` à part qu'il peut marcher. Ainsi, nous pouvons déleguer la création de l'objet spécifique à des usines, puis simplement prendre le point en commun.
 
 La composition est donc cruciale au fonctionnement de la `fabrique abstraite`. En conjonction avec le polymorphisme, elle amène une simplitude en ignorant tout à part le type d'item voulu. Les usines peuvent donc choisir le critère voulu (exemple: `de verre` dans les tableau ici-haut), puis l'application peut fonctionner sans s'en faire des variations.
 
