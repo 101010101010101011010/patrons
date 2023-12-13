@@ -15,6 +15,8 @@ Par exemple, il pourrait y avoir des cabinets, aimants, et tapis à souris, tout
 <style  type="text/css">
 
   th, td {
+    text-align: center; 
+    vertical-align: middle;
     border: 1px solid black;
   }
 
@@ -32,8 +34,6 @@ Par exemple, il pourrait y avoir des cabinets, aimants, et tapis à souris, tout
   }
 
   table {
-    text-align: center; 
-    vertical-align: middle;
     overflow: hidden;
   }
 
@@ -147,7 +147,10 @@ Nous pouvons ainsi simplement appeler la méthode `ouvre()` de l'interface `Cabi
 #### Utilisation d'héritage
 TODO
 #### Utilisation d'interfaces
-TODO
+Les interfaces sont le point centrale de la `fabrique abstraite`. Elles sont utilisés afin d'assurer qu'un objet quelquonque contient les méthodes voulues. Par exemple, l'interface `Display` est utilisé afin d'assurer que les objets `BayDisplay`, `SnowDisplay` et `StadiumDisplay` contiennent les méthodes `renderTop(Game game)` et `renderBottom(Game game)`. 
+
+Les interfaces sont aussi largement utilisées dans ce patron de conception afin de façiliter le sélectionnement d'items (exemples: `BayCar`, `StadiumDisplay`, etcetera) suivant un critère spécifique, comme un environnement. On peut donc appliquer le polymorphisme afin d'appeler une fonction de l'interface sur un objet qui l'implémente. Ceci est couvert en plus de détail dans la section [Utilisation du polymorphisme](#utilisation-du-polymorphisme).
+
 #### Utilisation du polymorphisme
 TODO
 #### Utilisation de composition
