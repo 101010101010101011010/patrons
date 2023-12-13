@@ -1,4 +1,4 @@
-patrons / Nicolas / 13 Décembre
+Patrons / Nicolas / 13 Décembre
 
 ![SVG du PUML du projet](https://github.com/101010101010101011010/patrons/blob/master/PatronsPUML.svg)
 
@@ -145,7 +145,8 @@ Nous pouvons ainsi simplement appeler la méthode `ouvre()` de l'interface `Cabi
 
 ## Concepts POO
 #### Utilisation d'héritage
-TODO
+Ce projet n'utilise pas d'héritage puisqu'il n'y a aucune classe parente (signifiée par `extends`).
+
 #### Utilisation d'interfaces
 Les interfaces sont le point centrale de la `fabrique abstraite`. Elles sont utilisés afin d'assurer qu'un objet quelquonque contient les méthodes voulues. Par exemple, l'interface `Display` est utilisé afin d'assurer que les objets `BayDisplay`, `SnowDisplay` et `StadiumDisplay` contiennent les méthodes `renderTop(Game game)` et `renderBottom(Game game)`. 
 
@@ -198,6 +199,54 @@ La table suivante (de plus tôt dans le README) démontre comment le type d'item
 </table>
 
 #### Utilisation de composition
-TODO
+La composition est le concept primaire de la `fabrique abstraite`. Comme mentionné dans la section [Utilisation d'interfaces](#utilisation-d'interfaces), les interfaces façilitent le sélectionnement d'items plus spécifiques en n'ayant pas leur nom complet. Ceci est un des traits de la composition.
+
+La composition consiste d'utiliser des interfaces afin de <i>composer</i> une classe de plus petits charactéristiques, puis de lui appliquer le polymorphisme. Voici un exemple en pseudo-code:
+```
+interface canWalk {
+  walk();
+}
+```
+```
+interface canJump {
+  jump();
+}
+```
+```
+class Teen implements canWalk, canJump {
+  ...
+}
+```
+```
+class Baby implements canWalk {
+  ...
+}
+```
+Dans cet exemple, l'adolescent peut marcher et sauter. Il implémente donc `canWalk` et `canJump`. Le bébé ne peut que marcher, donc il n'implémente que `canWalk'. Ceci devient très utile en appliquant le polymorphisme pusique les interfaces peuvent agir comme contenant du type, qui a des méthodes définies. Ajoutons ensuite le polymorphismse:
+```
+class App {
+  main(...) {
+    canWalk teenThatWalks = new Teen();
+    canWalk babyThatWalks = new Baby();
+
+    teenThatWalks.walk();
+    babyThatWalks.walk();
+  }
+}
+```
+Ici-haut, les objets `teenThatWalks` et `babyThatWalks` sont du type canWalk. Nous pouvons donc appliquer la méthode `walk()` dessus sans souçis. Dans mon projet, les classes spécifiques `teenThatWalks` et `babyThatWalks` seraient incertains. Plutot, on n'utilise qu'une interface qui représente le type d'item réel. Avec l'exemple précédent, cela pourrait ressembler à:
+```
+class App {
+  main(...) {
+    canWalk **_unknownThatWalks_** = <b>unknown</b>;
+
+    unknownThatWalks.walk();
+  }
+}
+```
+Nous ne savons rien au sujet de `unknown` à part qu'il peut marcher. Ainsi, nous pouvons déleguer la création de l'objet dpécifique à des usines, puis simplement prendre le point en commun.
+
+La composition est donc cruciale au fonctionnement de la `fabrique abstraite`. En conjonction avec le polymorphisme, elle amène une simplitude en ignorant tout à part le type d'item voulu. Les usines peuvent donc choisir le critère voulu (exemple: `de verre` dans les tableau ici-haut), puis l'application peut fonctionner sans s'en faire des variations.
 
 ## Sources
+``````
