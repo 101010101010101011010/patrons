@@ -12,6 +12,8 @@ Le patron de conception « fabrique abstraite » est utile dans des cas où plus
 
 Par exemple, il pourrait y avoir des cabinets, aimants, et tapis à souris, toutes utilisés pour des tables. S'il y a plusieurs types de tables, comme anchré, anglé, de verre, à l'envers, chaque item aura besoin d'une implémentation entièrement différente qu'un autre de la même espèce. Le tableau qui suit démontre que, si l'on veut accéder un item, il faut savoir son nom au complet d'avance
 
+> **_Note:_** le HTML n'est pas complètement supporté dans les fichiers de Markdown README sur Github en raison d'exploits possibles. Ainsi, pour voir le README interactif, veuillez voir la version dans un Git pull ou dans le Zip du projet.
+
 <style  type="text/css">
 
   th, td {
