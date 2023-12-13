@@ -14,50 +14,50 @@ Par exemple, il pourrait y avoir des cabinets, aimants, et tapis à souris, tout
 
 <style  type="text/css">
 
-th, td {
-  border: 1px solid black;
-}
+  th, td {
+    border: 1px solid black;
+  }
 
-td.hide {
-  border: 0px solid black;
-  visibility: hidden;
-}
+  td.hide {
+    border: 0px solid black;
+    visibility: hidden;
+  }
 
-td.hidetext {
-  visibility: hidden;
-}
+  td.hidetext {
+    visibility: hidden;
+  }
 
-.nohover {
-  background-color: transparent !important;
-}
+  .nohover {
+    background-color: transparent !important;
+  }
 
-table {
-  text-align: center; 
-  vertical-align: middle;
-  overflow: hidden;
-}
+  table {
+    text-align: center; 
+    vertical-align: middle;
+    overflow: hidden;
+  }
 
-.table2angle {
-  background-color: #4d4d4d;
-}
+  .table2angle {
+    background-color: #4d4d4d;
+  }
 
-.table2cabinet {
-  background-color: #4d4d4d;
-  
-}
+  .table2cabinet {
+    background-color: #4d4d4d;
+    
+  }
 
-.table2anglehighlight {
-  background-color: #808080;
-}
+  .table2anglehighlight {
+    background-color: #808080;
+  }
 
-.table2cabinet:not(:hover) {
-  background-color: transparent;
-}
+  .table2cabinet:not(:hover) {
+    background-color: transparent;
+  }
 
-.table2cabinet:not(:hover) .table2anglehighlight {
-  color: #4d4d4d;
-  background-color: #4d4d4d;
-}
+  .table2cabinet:not(:hover) .table2anglehighlight {
+    color: #4d4d4d;
+    background-color: #4d4d4d;
+  }
 
 </style>
 
@@ -96,6 +96,13 @@ table {
     <td>Tapis à souris à l'envers</td>
   </tr>
 </table>
+
+<details>
+<summary>Tableau1 SVG (Github ne marche pas bien avec le html)</summary>
+
+![Tableau1 SVG](./Tableau1.svg)
+</details>
+<br>
 
 Afin de combattre ce problème, la `fabrique abstraite` utilise une usine abstraite qui fait appèle aux usines individuelles de chaque critère. Ces usines plus spécialisés créent ensuite chaque objet individuel qui est désigné au critère. Ainsi, nous ne devons pas savoir le type exacte d'un item selon le critère, plutôt seulement le nom de l'item est nécéssaire. Le tableau suivant démontre la simplitude de ne qu'avoire à savoir le nom de l'item et d'avoir le critère prédéfini en créant l'objet au travers de l'usine abstraite.
 
@@ -138,6 +145,13 @@ Le critère `Anglé` a été choisi lors de la création de l'objet. Essaye de s
     <td></td>
   </tr>
 </table>
+
+<details>
+<summary>Tableau2 SVG (Github ne marche pas bien avec le html)</summary>
+
+![Tableau2 SVG](./Tableau2.svg)
+</details>
+<br>
 
 Nous pouvons ainsi simplement appeler la méthode `ouvre()` de l'interface `Cabinet` sur l'objet qui implémente `Cabinet` sachant que, même avec des implémentations entièrement différentes la tâche s'accomplira pour le critère choisi.
 
