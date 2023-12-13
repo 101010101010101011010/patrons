@@ -224,7 +224,7 @@ class Baby implements canWalk {
   ...
 }
 ```
-Dans cet exemple, l'adolescent peut marcher et sauter. Il implémente donc `canWalk` et `canJump`. Le bébé ne peut que marcher, donc il n'implémente que `canWalk'. Ceci devient très utile en appliquant le polymorphisme pusique les interfaces peuvent agir comme contenant du type, qui a des méthodes définies. Ajoutons ensuite le polymorphismse:
+Dans cet exemple, l'adolescent peut marcher et sauter. Il implémente donc `canWalk` et `canJump`. Le bébé ne peut que marcher, donc il n'implémente que `canWalk`. Ceci devient très utile en appliquant le polymorphisme pusique les interfaces peuvent agir comme contenant du type, qui a des méthodes définies. Ajoutons ensuite le polymorphismse:
 ```
 class App {
   main(...) {
