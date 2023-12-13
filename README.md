@@ -1,12 +1,14 @@
 Patrons / Nicolas / 13 Décembre
 
-![SVG du PUML du projet](https://github.com/101010101010101011010/patrons/blob/master/PatronsPUML.svg)
+![SVG du PUML du projet](/PatronsPUML.svg)
+
+Pour rouler le jeu, écris `.\run.ps1` dans le terminale. Ce script applique l'espace de code 65001 (UTF-8) afin que les emoji soit bien présentés puis roule ensuite le program.
 
 ## Fabrique abstraite
 #### Catégorie
 Patrons de création
 #### Utilité
-Le patron de conception « fabrique abstraite » est utile dans des cas où plusieurs items spécifiques ont des implémentations qui diffèrent selon un critère globale.
+Le patron de conception `fabrique abstraite` est utile dans des cas où plusieurs items spécifiques ont des implémentations qui diffèrent selon un critère globale.
 
 ---
 
