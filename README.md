@@ -201,7 +201,7 @@ La table suivante (de plus tôt dans le README) démontre comment le type d'item
 </table>
 
 #### Utilisation de composition
-La composition est le concept primaire de la `fabrique abstraite`. Comme mentionné dans la section [Utilisation d'interfaces](#utilisation-d-interfaces), les interfaces façilitent le sélectionnement d'items plus spécifiques en n'ayant pas leur nom complet. Ceci est un des traits de la composition.
+La composition est le concept primaire de la `fabrique abstraite`. Comme mentionné dans la section [Utilisation d'interfaces](#utilisation-dinterfaces), les interfaces façilitent le sélectionnement d'items plus spécifiques en n'ayant pas leur nom complet. Ceci est un des traits de la composition.
 
 La composition consiste d'utiliser des interfaces afin de <i>composer</i> une classe de plus petits charactéristiques, puis de lui appliquer le polymorphisme. Voici un exemple en pseudo-code:
 ```
