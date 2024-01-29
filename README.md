@@ -254,3 +254,19 @@ La composition est donc cruciale au fonctionnement de la `fabrique abstraite`. E
 
 ## Sources
 ``````
+
+### Évaluation
+
+4+ 4++
+
+o lien soumis via le formulaire
+
+o CO - Les identifiants (variables et méthodes), les commentaires, les javadoc et l'indentation rendent le code facile à lire
+
+x CO - Les informations dans le README sont bien structurées et faciles à lire. (manque les sources citées)
+
+o MA - Le diagramme de classe UML est cohérent avec votre implémentation du patron.
+
+o MA - Votre analyse démontre votre capacité à reconnaître les concepts de l'OOP dans un contexte concret.
+
+o MA - Le travail correspond entièrement aux spécifications du projet 
